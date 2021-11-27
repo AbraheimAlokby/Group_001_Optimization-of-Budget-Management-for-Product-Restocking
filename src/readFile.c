@@ -7,7 +7,7 @@
 
 extern int errno;
 
-int read_file(char *filePath,struct Product *data,int *noOfRows){
+int read_file(char *filePath,struct Product **data,int *noOfRows){
     if(!filePath){
         return -3;
     }
@@ -35,6 +35,22 @@ int read_file(char *filePath,struct Product *data,int *noOfRows){
             return -1;
         }
     }
+    char c;
+    while(!feof(file)){
+        char c=fgetc(file);
+        if (c == '\n'){
+            rowCount++;
+        }
+    }
+    *data=(struct Product*)malloc((rowCount-1)*sizeof(struct Product));
+    fseek(file,0,SEEK_SET);
+    rowCount=0;
+    while(!feof(file)){
+        char c=fgetc(file);
+        if (c == '\n'){
+            break;
+        }
+    }
     char *row=(char *)malloc(sizeof(char));
     fgets(row,1024,file);
     int flag=0;
@@ -48,33 +64,28 @@ int read_file(char *filePath,struct Product *data,int *noOfRows){
             if(cell==""){
                 flag=1;
             }
-            if(rowCount!=0){
-                switch(columnCount){
-                    case 0:
-                        data->id=a;
-                        break;
-                    case 1:
-                        strcpy(data->name,cell);
-                        break;
-                    case 2:
-                        data->cost_price=a;
-                        break;
-                    case 3:
-                        data->selling_price=a;
-                        break;
-                    case 4:
-                        data->current_quantity=a;
-                        break;
-                    case 5:
-                        data->initial_quantity=a;
-                        break;
-                }
+            switch(columnCount){
+                case 0:
+                    (*data)[rowCount].id=a;
+                    break;
+                case 1:
+                    strcpy((*data)[rowCount].name,cell);
+                    break;
+                case 2:
+                    (*data)[rowCount].cost_price=a;
+                    break;
+                case 3:
+                    (*data)[rowCount].selling_price=a;
+                    break;
+                case 4:
+                    (*data)[rowCount].current_quantity=a;
+                    break;
+                case 5:
+                    (*data)[rowCount].initial_quantity=a;
+                    break;
             }
             cell = strtok(NULL, ",");
             columnCount++;
-        }
-        if(rowCount!=0){
-            data++;
         }
         fgets(row,1024,file);
         rowCount++;
@@ -83,7 +94,7 @@ int read_file(char *filePath,struct Product *data,int *noOfRows){
         printf("Incomplete Data In the file. Please update the data before ");
         return 1;
     }
-    *noOfRows=rowCount-1;
+    *noOfRows=rowCount;
     return 0;
 }
 

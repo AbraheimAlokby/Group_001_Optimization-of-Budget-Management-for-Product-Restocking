@@ -1,7 +1,7 @@
 #include "../include/calculateDemand.h"
 
-int *calculate_demand(struct Product *data,int noOfRows){
-    for(int i=0;i<noOfRows;i++){
+int *calculate_demand(struct Product *data,int *noOfRows){
+    for(int i=0;i<*noOfRows;i++){
         float percentageOfItemsSold=(data[i].selling_price-data[i].cost_price+0.0)/data[i].selling_price;
         percentageOfItemsSold*=100;
         int demandVariable;
@@ -20,6 +20,7 @@ int *calculate_demand(struct Product *data,int noOfRows){
         else{
             demandVariable=5;
         }
+        data[i].demand=demandVariable;
         printf("%f %d   ",percentageOfItemsSold,demandVariable);
     }
 }

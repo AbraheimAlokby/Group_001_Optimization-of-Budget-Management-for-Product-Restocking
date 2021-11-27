@@ -10,7 +10,7 @@
 * @param[out] *data Pointer to Array of struct Product
  * @param[out] *noOfRows Pointer to noOfRows to store the number of rows of data fetched
 */
-int read_file(char *filePath,struct Product *data,int *noOfRows);
+int read_file(char *filePath,struct Product **data,int *noOfRows);
 
 #endif
 

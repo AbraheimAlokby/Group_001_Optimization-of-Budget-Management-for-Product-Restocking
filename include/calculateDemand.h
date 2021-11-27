@@ -4,6 +4,6 @@
 #include <stdio.h>
 #include "utils.h"
 
-int *calculate_demand(struct Product *data,int noOfRows);
+int *calculate_demand(struct Product *data,int *noOfRows);
 
 #endif
