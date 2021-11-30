@@ -19,8 +19,8 @@ void *optimization_algorithm(struct Product *data, int num_of_rows, float total_
                                          * Initialized as total budget.
                                          */
     //current_budget = total_budget
-    printf("total budget = %f \n", total_budget);
-    printf("current budget = %f \n", current_budget);
+    //printf("total budget = %f \n", total_budget);   /* test output */
+    //printf("current budget = %f \n", current_budget);   /* test output */
 
     /*Allocate percentage of budget to a product based on that products
      * level of demand (and possibly level of profit). Allocated budget
@@ -34,7 +34,7 @@ void *optimization_algorithm(struct Product *data, int num_of_rows, float total_
                                  * to the items of the highest demand.
                                  */
 
-        printf("Budget allocations for Rank: %d\n", demand_rank); /*Output used for testing purposes */
+        //printf("Budget allocations for Rank: %d\n", demand_rank); /*Output used for testing purposes */
         for(i=0; i<num_of_rows; i++){   /*For loop iterates through each item
                                          * of the list.
                                          */
@@ -79,7 +79,7 @@ void *optimization_algorithm(struct Product *data, int num_of_rows, float total_
                     current_budget -= data[i].product_budget;
                 }
 
-                printf("Product %d -> Allocation: %f / %f \n", i, data[i].product_budget, current_budget); /*Output used for testing purposes */
+                //printf("Product %d -> Allocation: %f / %f \n", i, data[i].product_budget, current_budget); /*Output used for testing purposes */
             }
             else{
                 continue; /* Ensures iteration is properly moved on to the next item of the list */
@@ -87,8 +87,10 @@ void *optimization_algorithm(struct Product *data, int num_of_rows, float total_
         }
         demand_rank--;
     }
-    printf("Final remaining budget = %f \n", current_budget);
-
+    //printf("Final remaining budget = %f \n", current_budget); /* test output */
+    puts("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+    puts("The Calculated Amounts for Item Restock is: ");
+    puts("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
     for (i=0; i<num_of_rows; i++){  /* For loop iterates through each item of the
                                      * list, to select how many of each item
                                      * should be purchased based on the allocated
@@ -108,12 +110,12 @@ void *optimization_algorithm(struct Product *data, int num_of_rows, float total_
                 /* Increment restock amount by one while we have available allocated budget */
                 data[i].restock_amount++;
                 /* Test Output */
-                printf("Product %d - Restock value %d -> Current Allocated Budget = %f \n", i, data[i].restock_amount, temp_allocated_allocated_budget);
+                //printf("Product %d - Restock value %d -> Current Allocated Budget = %f \n", i, data[i].restock_amount, temp_allocated_allocated_budget);
             }
         }
         /* Test Output */
         printf("Product %d -> Amount Purchased = %d \n", i, data[i].restock_amount);
-        puts("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        //puts("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
     }
     return 0;
 }
