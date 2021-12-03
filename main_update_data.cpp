@@ -17,6 +17,12 @@ struct Product{
 
 struct Product data[10];
 
+int calculate_profit(){
+	for(int i=0;i<10;i++){
+		data[i].profit = data[i].selling_price - data[i].cost_price;
+	}
+}
+
 int updateData(int temp_id){
 	if(temp_id)
 		continue;	
