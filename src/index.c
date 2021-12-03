@@ -3,6 +3,8 @@
 #include <string.h>
 #include "../include/readFile.h"
 #include "../include/calculateDemand.h"
+#include "../include/showItems.h"
+#include "../include/optimizationAlgorithm.h"
 #define FILE_PATH "..\\data\\abc.csv"
 
 
@@ -13,11 +15,10 @@ int main() {
 
     int x=read_file(FILE_PATH,data,noOfRows);
 
-    for(int i=0;i<*noOfRows;i++){
-        printf("%d %s %f %f %d %d ",(*data)[i].id,(*data)[i].name,(*data)[i].cost_price,(*data)[i].selling_price,(*data)[i].current_quantity,(*data)[i].initial_quantity);
-        printf("\n");
-    }
+
     calculate_demand(*data,noOfRows);
+    show_items(*data,*noOfRows);
+    optimization_algorithm(*data,*noOfRows,10000.0);
     return 0;
 }
 
