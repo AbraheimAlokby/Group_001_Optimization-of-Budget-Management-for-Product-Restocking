@@ -23,6 +23,18 @@ int calculate_profit(){
 	}
 }
 
+int askForCase(){
+	int case_no;
+	scanf("%d",&case_no);
+	//print function list
+	switch(case_no){
+		case 1:
+			//fun 1
+		case 2:
+			//fun 2
+	}
+}
+
 int updateData(int temp_id){
 	if(temp_id)
 		continue;	
