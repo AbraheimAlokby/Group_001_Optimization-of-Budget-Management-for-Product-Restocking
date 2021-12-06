@@ -1,0 +1,44 @@
+CC=gcc
+
+
+#CREATE BIN AND BUILD FOLDERS TO SAVE THE COMPILED FILES DURING RUNTIME IF THEY DO NOT EXIST
+bin_folder := $(shell mkdir "bin")
+build_folder := $(shell mkdir "build")
+results_folder := $(shell mkdir "data")
+
+
+#TARGETS TO GENERATE THE OBJECT FILES
+all:  index
+
+index:  index.o readFile.o calculateDemand.o optimizationAlgorithm.o showItems.o updateData.o calculateProfit.o insertNewData.o
+	$(CC) -g  build/index.o build/readFile.o build/calculateDemand.o build/optimizationAlgorithm.o build/showItems.o build/updateData.o build/calculateProfit.o build/insertNewData.o -o bin/index
+
+calculateProfit.o: src/calculateProfit.c
+	$(CC) -g -c  src/calculateProfit.c -o build/calculateProfit.o
+
+updateData.o: src/updateData.c
+	$(CC) -g -c  src/updateData.c -o build/updateData.o
+
+optimizationAlgorithm.o: src/optimizationAlgorithm.c
+	$(CC) -g -c  src/optimizationAlgorithm.c -o build/optimizationAlgorithm.o
+
+showItems.o: src/showItems.c
+	$(CC) -g -c  src/showItems.c -o build/showItems.o
+
+insertNewData.o: src/insertNewData.c
+	$(CC) -g -c  src/insertNewData.c -o build/insertNewData.o
+
+calculateDemand.o: src/calculateDemand.c
+	$(CC) -g -c  src/calculateDemand.c -o build/calculateDemand.o
+
+readFile.o: src/readFile.c
+	$(CC) -g -c  src/readFile.c -o build/readFile.o
+
+index.o: src/index.c
+	$(CC) -g -c  src/index.c  -o build/index.o
+
+
+
+#CLEAN COMMANDS
+clean:
+	rm -f bin/* build/*
