@@ -6,10 +6,10 @@
 * Application Overview
 * File Organization
 * Getting Started 
-  *  Dependencies
-  *  Building the Software
-  *  Testing the Software
-  *  Running the Main Application
+  *  1. Dependencies
+  *  2. Building the Software
+  *  3. Testing the Software
+  *  4. Running the Main Application
 * Documentation
 
 ## Team Members 
@@ -52,6 +52,17 @@ Main Folder Structure | Description
 /bin | Executables requried for successful application run and tests
 /build | Compiler's build files
 README.md | Projects ReadMe file
+makeFile | MakeFile creation and running individual modules from the main file
+
+## Getting Started
+
+### 1. Dependencies
+
+The following subsections show the main 3rd party depencies' installation methods for both Windows and Linux: 
+
+**Windows Users**
+
+
 
 This repository contains all work completed to date for the Group 1 program project
 
