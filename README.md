@@ -1,4 +1,4 @@
-# Group_001_Optimization-of-Budget-Management-for-Product-Restocking
+# Group 1 - Optimization of Budget Management for Product Restocking
 
 ## Table of Contents
 
@@ -32,6 +32,14 @@ This software aims to improve the management of product purchases within a compa
 * Check the data file through the command line, with the choice of adding/removing or modifying chosen product data.
 * Run and with the final completed data to determine the chosen items for restocking based on a **Ranked List** policy.
 * View the final decision of the algorithm for what which products had been selected for restocking and how many of those products where selected. 
+
+Detailed information about the application can be found in the _WIKI_ with the following **[INSERT LINK HERE]** 
+
+## File Organization
+The application file is organized based on the following format: 
+
+Main Folder Structure | Description
+--------------------- | -----------
 
 
 This repository contains all work completed to date for the Group 1 program project
