@@ -15,7 +15,9 @@
 ## Team Members 
 
 Organization: Carleton University
+
 Course: SYSC 4006 A - Introduction to Systems Programming
+
 Authors:
 
 Student Name | GITHub ID
