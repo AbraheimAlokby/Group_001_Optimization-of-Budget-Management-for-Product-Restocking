@@ -40,17 +40,18 @@ The application file is organized based on the following format:
 
 Main Folder Structure | Description
 --------------------- | -----------
-/bin | Executables requried for successful application run and tests
-/build | Compiler's build files
-/src | Application's function sources 
-/include | Application's header files
 /data | Contains all required data to successfully run the application. This includes the necessary function named _readFile_ 
+/doc | Documentation for the application
+/include | Application's header files
+/lib | **[INSERT TEXT]**
+/src | Application's function sources 
 /test | Required information required for application testing
 /test/include | Application's header files required for application testing
 /test/src | Application's function sources requried for application testing
 /test/data |  Contains all required data to successfully test the application. This includes the necessary function named _readFile_ 
-/lib | **[INSERT TEXT]**
-README | Projects ReadMe file
+/bin | Executables requried for successful application run and tests
+/build | Compiler's build files
+README.md | Projects ReadMe file
 
 This repository contains all work completed to date for the Group 1 program project
 
