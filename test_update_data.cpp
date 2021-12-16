@@ -2,7 +2,7 @@
 #include <time.h>
 #include<string.h>
 #include <stdlib.h>
-#include"updateData.h"
+//#include"updateData.h"
 
 struct Product{
     int id;
@@ -23,34 +23,45 @@ int calculate_profit(){
 	}
 }
 
-int updateData(int temp_id){
-	if(temp_id)
-		continue;	
+int updateData(int temp_id, int n){
+	if(temp_id){}
+//		continue;
 	else{
 		printf("Enter Valid number");
 		return 4;	
 	}
 	
-	int n,flag = 0;
+	int flag = 0;
 	for(int i=0;i<10;i++){
 		if(temp_id == data[i].id){
 			
-			printf("Press 1 to update ID\n");
-			printf("Press 2 to update name\n");
-			printf("Press 3 to update cost price\n");
-			printf("Press 4 to update selling price\n");
-			printf("Press 5 to update current quantity\n");
-			printf("Press 6 to update initial quantity\n");
-			scanf("%d", &n);
+//			printf("Press 1 to update ID\n");
+//			printf("Press 2 to update name\n");
+//			printf("Press 3 to update cost price\n");
+//			printf("Press 4 to update selling price\n");
+//			printf("Press 5 to update current quantity\n");
+//			printf("Press 6 to update initial quantity\n");
+//			scanf("%d", &n);
 			
 			if(n == 1){
-				printf("Enter ID: ");
-				int temp;
-				scanf("%d",&temp);
+//				printf("Enter ID: ");
+				int temp = data[1].id;
 				for(int j = 0; j < 10; j++){
 					if(data[i].id == temp){
-						printf("Product ID is already exists in the file\n");
-						return 1;
+						printf("Testcase Failed: Product ID is already exists in the file\n");
+						return 3;
+					}
+				}
+				data[i].id = temp;
+			}
+			
+			if(n == 11){
+//				printf("Enter ID: ");
+				int temp = 75;
+				for(int j = 0; j < 10; j++){
+					if(data[i].id == temp){
+						printf("Testcase Failed: Product ID is already exists in the file\n");
+						return 3;
 					}
 				}
 				data[i].id = temp;
@@ -58,32 +69,30 @@ int updateData(int temp_id){
 			
 			else if(n == 2){
 				printf("Enter Name: ");
-				char new_name[30];
-				scanf("%s",new_name);
+				char new_name[30] = "some random name";
 				strcpy(data[i].name,new_name);
 			}
 			else if(n == 3){
 				printf("Enter Cost Price: ");
 				float temp;
-				scanf("%f",&temp);
+				temp = 75.6;
 				data[i].cost_price = temp;
 			}
 			else if(n == 4){
 				printf("Enter Selling Price: ");
 				float temp;
-				scanf("%f",&temp);
+				temp = 54.6;
 				data[i].selling_price = temp;
 			}
 			else if(n == 5){
 				printf("Enter Current Quantity: ");
-				int temp;
+				int temp = 66;
 				scanf("%d",&temp);
 				data[i].current_quantity = temp;
 			}
 			else if(n == 6){
 				printf("Enter Initial Quantity: ");
-				int temp;
-				scanf("%d",&temp);
+				int temp = 77;
 				data[i].initial_quantity = temp;
 			}
 			flag = 1;
@@ -92,7 +101,11 @@ int updateData(int temp_id){
 	}
 			
 	if(flag == 0)
-		printf("data not found\n");	
+	{
+		printf("Testcase Failed: Product Id is not found\n");
+		return 2;
+	}
+			
 	
 	FILE *fp = fopen("C:\\Users\\jeett\\Desktop\\abc.txt","w");
 	
@@ -100,7 +113,9 @@ int updateData(int temp_id){
 		fprintf(fp, "%d;%f;%f;\n", data[i].id,data[i].cost_price,data[i].selling_price);		
 	}
 	
-	fclose(fp);	
+	fclose(fp);
+	printf("Testcase Passed: Executed with no Error");
+	return 0;
 }
 
 int main(){
@@ -108,12 +123,13 @@ int main(){
 	int n;
 	srand(time(NULL));   // Initialization, should only be called once.
 	for(int i=0;i<10;i++){
-		data[i].id =  rand() % 20;
+		data[i].id =  rand() % 10;
 		data[i].cost_price = rand();
 		data[i].selling_price = rand();		
 	}
-	int temp_id;
-	printf("Enter ID of product which you want to update: ");
-	scanf("%d", &temp_id);
-	int r = updateData(temp_id);	
+
+	int r = updateData(data[1].id,1);	
+	r = updateData(55,1);
+	r = updateData(data[1].id,11);
+
 }
