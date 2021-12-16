@@ -23,8 +23,8 @@ Authors:
 Student Name | GITHub ID
 ------------ | ---------
 Abraheim Alokby | AbraheimAlokby
-Kanwar Roop Singh | INSERT
-Jeetkumar Thummar | INSERT 
+Kanwar Roop Singh | kanwar-roop-singh
+Jeetkumar Thummar | jeetthummar 
 
 ## Application Overview
 
