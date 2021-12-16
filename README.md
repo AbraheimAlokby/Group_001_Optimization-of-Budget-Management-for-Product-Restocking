@@ -64,7 +64,10 @@ The following subsections show the main 3rd party depencies' installation method
 
 **Windows Users**
 
+* Cygwin
+* CLION IDE
 
+The instructions on how to install these dependencies are found in Section 1 - Software Dependencies of the Wiki. This can also be found with the [link](). 
 
 This repository contains all work completed to date for the Group 1 program project
 
