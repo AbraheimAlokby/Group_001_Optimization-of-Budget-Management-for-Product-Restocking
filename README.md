@@ -66,6 +66,7 @@ The following subsections show the main 3rd party depencies' installation method
 
 * Cygwin
 * CLION IDE
+* GIT GUI
 
 The instructions on how to install these dependencies are found in Section 1 - Software Dependencies of the _Wiki_. This can also be found with the [link](https://github.com/AbraheimAlokby/Group_001_Optimization-of-Budget-Management-for-Product-Restocking/wiki/1.-Software-Dependencies). 
 
@@ -73,8 +74,18 @@ This repository contains all work completed to date for the Group 1 program proj
 
 ## 2. Cloning the Github Repository
 
-You can clone a repository that you want to contribute to directly from CLion, this can be done with the followin steps: 
+You can clone the projects repository from GitHub.com to your local computer to make it easier to fix merge conflicts, add or remove files, and push larger commits. When you clone the repository, you copy the repository from GitHub.com to your local machine.
 
+Cloning this repository pulls down a full copy of all the data and files found in GitHub, including all versions of every file and folder for the project. The instruction to pull a full copy for individual testing is found below: 
+
+1. Find the main page of the repository on Git Hub, and above the list of files click the down arrow of the green bar that says **CLONE**. 
+2. To clone the repository using HTTPS, under "Clone with HTTPS", click the two overlapping square boxes next to the textbox containing the URL. To clone the repository using an SSH key,  click Use SSH, then click the two overlapping square boxes next to the textbox containing the URL. Finally, to clone a repository using GitHub CLI, click Use GitHub CLI, then click the two overlapping square boxes next to the textbox containing the URL.
+3. Open GIT GUI that was installed on your local system previously. 
+4. Select _Clone Existing Repository_.
+5. Select where you would want to install a new folder to install the repository in _Target Directory_.
+6. Paste the repository link, found in Step 2, within the _Source Location_ box. 
+7. Click on _Clone_. 
+8. The software repository is now cloned on your local computer
 
 
 ## 3. Running the Software
@@ -82,11 +93,7 @@ You can clone a repository that you want to contribute to directly from CLion, t
 Once all the required independencies have been installed, follow the following instructions to completely run the program: 
 
 1. Open command prompt in the parent directory of the project
-
-2. Run the command "make" to compile the program
-
-3. Run the command "cd bin" go inside bin directory
-
-4. Run the "index.exe" file to run the program
-
-5. Also you can use "make clean" command to delete the object(.o) files
+2. Run the command _make_ to compile the program
+3. Run the command _cd bin_ go inside bin directory
+4. Run the _index.exe_ file to run the program
+5. Also you can use _make clean_ command to delete the object(.o) files
