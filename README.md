@@ -67,7 +67,7 @@ The following subsections show the main 3rd party depencies' installation method
 * Cygwin
 * CLION IDE
 
-The instructions on how to install these dependencies are found in Section 1 - Software Dependencies of the Wiki. This can also be found with the [link](). 
+The instructions on how to install these dependencies are found in Section 1 - Software Dependencies of the Wiki. This can also be found with the [link](https://github.com/AbraheimAlokby/Group_001_Optimization-of-Budget-Management-for-Product-Restocking/wiki/1.-Software-Dependencies). 
 
 This repository contains all work completed to date for the Group 1 program project
 
