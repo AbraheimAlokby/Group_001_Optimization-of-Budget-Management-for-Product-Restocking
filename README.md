@@ -35,7 +35,7 @@ This software aims to improve the management of product purchases within a compa
 * Run and with the final completed data to determine the chosen items for restocking based on a **Ranked List** policy.
 * View the final decision of the algorithm for what which products had been selected for restocking and how many of those products where selected. 
 
-Detailed information about the application can be found in the _WIKI_ with the following **[INSERT LINK HERE]** 
+Detailed information about the application can be found in the _WIKI_ with the following [link](https://github.com/AbraheimAlokby/Group_001_Optimization-of-Budget-Management-for-Product-Restocking/wiki). 
 
 ## File Organization
 The application file is organized based on the following format: 
@@ -67,14 +67,26 @@ The following subsections show the main 3rd party depencies' installation method
 * Cygwin
 * CLION IDE
 
-The instructions on how to install these dependencies are found in Section 1 - Software Dependencies of the Wiki. This can also be found with the [link](https://github.com/AbraheimAlokby/Group_001_Optimization-of-Budget-Management-for-Product-Restocking/wiki/1.-Software-Dependencies). 
+The instructions on how to install these dependencies are found in Section 1 - Software Dependencies of the _Wiki_. This can also be found with the [link](https://github.com/AbraheimAlokby/Group_001_Optimization-of-Budget-Management-for-Product-Restocking/wiki/1.-Software-Dependencies). 
 
 This repository contains all work completed to date for the Group 1 program project
 
-#Setup Instructions
+## 2. Cloning the Github Repository
 
-- Open command prompt in the parent directory of the project
-- Run the command "make" to compile the program
-- Run the command "cd bin" go inside bin directory
-- Run the "index.exe" file to run the program
-- Also you can use "make clean" command to delete the object(.o) files
+You can clone a repository that you want to contribute to directly from CLion, this can be done with the followin steps: 
+
+
+
+## 3. Running the Software
+
+Once all the required independencies have been installed, follow the following instructions to completely run the program: 
+
+1. Open command prompt in the parent directory of the project
+
+2. Run the command "make" to compile the program
+
+3. Run the command "cd bin" go inside bin directory
+
+4. Run the "index.exe" file to run the program
+
+5. Also you can use "make clean" command to delete the object(.o) files
