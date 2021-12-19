@@ -21,6 +21,5 @@ int *calculate_demand(struct Product *data,int *noOfRows){
             demandVariable=5;
         }
         data[i].demand=demandVariable;
-        printf("%f %d   ",percentageOfItemsSold,demandVariable);
     }
 }

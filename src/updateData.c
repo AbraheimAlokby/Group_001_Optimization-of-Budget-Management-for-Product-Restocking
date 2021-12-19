@@ -70,10 +70,9 @@ int update_data(int temp_id, char *filePath, struct Product *data, int no_of_row
         printf("data not found\n");
 
     FILE *fp = fopen(filePath,"w");
-
+    fprintf(fp,"Product ID,Name,Price,Selling Price,Quantity,Initial Quantity\n");
     for(int i=0;i<no_of_rows;i++){
-        fprintf(fp, "%d;%f;%f;\n", data[i].id,data[i].cost_price,data[i].selling_price);
+        fprintf(fp, "%d,%s,%d,%f,%f,%d,%d\n", data[i].id,data[i].name,data[i].cost_price,data[i].selling_price,data[i].current_quantity,data[i].initial_quantity);
     }
-
     fclose(fp);
 }

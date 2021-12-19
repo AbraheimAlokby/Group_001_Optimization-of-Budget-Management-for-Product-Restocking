@@ -30,11 +30,14 @@ void *show_items(struct Product *data, int num_of_rows){
         scanf("%d", &user_decision);
 
         if(user_decision == 1){
-            char *row1[] = {"Product ID", "Purchase Price", "Selling Price", "Profit", "Demand", "Initial Quantity", "Current Quantity"};       //row 1 signifies the column names of the outputted data
-            printf("%*s | %*s | %*s | %*s | %*s | %*s | %*s\n", -MAX, row1[0], MAX, row1[1], MAX, row1[2], MAX, row1[3], MAX, row1[4], MAX, row1[5], MAX, row1[6]);                      //Prints each column name in their respective location into the command terminal
+            printf ("Showing Information for All Products: \n");
+            puts("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+            char *row1[] = {"Product Name", "Product ID", "Purchase Price", "Selling Price", "Profit", "Demand", "Initial Quantity", "Current Quantity"};       //row 1 signifies the column names of the outputted data
+            printf("%*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s\n", -MAX, row1[0], MAX, row1[1], MAX, row1[2], MAX, row1[3], MAX, row1[4], MAX, row1[5], MAX, row1[6], MAX, row1[7]);                      //Prints each column name in their respective location into the command terminal
+            puts("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 
             for(i=0; i<num_of_rows; i++){     //Accesses each row from the data structure
-                printf("%-16d | %16f | %16f | %16f | %16d | %16d | %16d\n", data[i].id, data[i].cost_price, data[i].selling_price, data[i].profit, data[i].demand, data[i].initial_quantity, data[i].current_quantity);       //Prints the desired column of data each. Note that the value within %d must be equal to MAX
+                printf("%-16s | %16d | %16f | %16f | %16f | %16d | %16d | %16d\n", data[i].name, data[i].id, data[i].cost_price, data[i].selling_price, data[i].profit, data[i].demand, data[i].initial_quantity, data[i].current_quantity);       //Prints the desired column of data each. Note that the value within %d must be equal to MAX
             }
             puts("\n");
         }
@@ -62,13 +65,16 @@ void *show_items(struct Product *data, int num_of_rows){
             } while (user_input!=0);                                                                //This do while loop prompts the user for numbers until a zero character is entered. Each time a new value is introduced the memory block pointed by selected_products is increased by the size of an int.
             puts("\n");
             printf ("Showing Information for Selected Products: \n");
-            char *row1[] = {"Product ID", "Purchase Price", "Selling Price", "Profit", "Demand", "Initial Quantity", "Current Quantity"};
-            printf("%*s | %*s | %*s | %*s | %*s | %*s\n", -MAX, row1[0], MAX, row1[1], MAX, row1[2], MAX, row1[3], MAX, row1[4], MAX, row1[5]);                      //Prints each column name in their respective location into the command terminal
+
+            puts("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+            char *row1[] = {"Product Name", "Product ID", "Purchase Price", "Selling Price", "Profit", "Demand", "Initial Quantity", "Current Quantity"};       //row 1 signifies the column names of the outputted data
+            printf("%*s | %*s | %*s | %*s | %*s | %*s | %*s | %*s\n", -MAX, row1[0], MAX, row1[1], MAX, row1[2], MAX, row1[3], MAX, row1[4], MAX, row1[5], MAX, row1[6], MAX, row1[7]);                      //Prints each column name in their respective location into the command terminal
+            puts("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 
             for(n = 0; n<count; n++){                                       //Looks for matching product numbers from the data array and outputs the row
-                for(i = 0; i<num_of_rows; i++){                                       //note: remember to remove the 5 with num_rows
+                for(i = 0; i<num_of_rows; i++){
                     if(selected_products[n] == data[i].id){
-                        printf("%-16d | %16f | %16f | %16f | %16d | %16d | %16d\n", data[i].id, data[i].cost_price, data[i].selling_price, data[i].profit, data[i].demand, data[i].initial_quantity, data[i].current_quantity);//Prints the desired column of data each. Note that the value within %d must be equal to MAXintf
+                        printf("%-16s | %16d | %16f | %16f | %16f | %16d | %16d | %16d\n", data[i].name, data[i].id, data[i].cost_price, data[i].selling_price, data[i].profit, data[i].demand, data[i].initial_quantity, data[i].current_quantity);//Prints the desired column of data each. Note that the value within %d must be equal to MAXintf
                     }
                 }
             }
