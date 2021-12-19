@@ -1,7 +1,9 @@
+/*
+ * This header file creates the required structure needed for the data allocation of the program.
+ */
+
 #ifndef __UTILS_H__
 #define __UTILS_H__
-
-/*This header file creates the required structure needed for the data allocation of the program */
 
 struct Product {
     int id;                     /* Product identification number */

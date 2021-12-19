@@ -1,21 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../include/readFile.h"
-#include "../include/calculateDemand.h"
-#include "../include/showItems.h"
-#include "../include/optimizationAlgorithm.h"
-#include "../include/updateData.h"
-#include "../include/calculateProfit.h"
-#include "../include/insertNewData.h"
-#define FILE_PATH "..\\data\\abc.csv"
+#include "../include/read_file.h"
+#include "../include/calculate_demand.h"
+#include "../include/show_items.h"
+#include "../include/optimization_algorithm.h"
+#include "../include/update_data.h"
+#include "../include/calculate_profit.h"
+#include "../include/insert_new_data.h"
+#define FILE_PATH "..\\data\\product_data.csv"
 
 
 
 int main() {
-    int *noOfRows=(int *)malloc(sizeof(int));
+    int *no_of_rows=(int *)malloc(sizeof(int));
     struct Product **data;
-    int x=read_file(FILE_PATH,data,noOfRows);
+    int x=read_file(FILE_PATH,data,no_of_rows);
 
     int case_no;
 
@@ -37,24 +37,26 @@ int main() {
         scanf("%d", &case_no);
         switch (case_no) {
             case 1:
-                show_items(*data, *noOfRows);
+                calculate_demand(*no_of_rows,*data);
+                calculate_profit(*no_of_rows,*data);
+                show_items(*data, *no_of_rows);
                 break;
             case 2:
-                insert_new_data(FILE_PATH, data, noOfRows);
+                insert_new_data(FILE_PATH, data, no_of_rows);
                 break;
             case 3:
                 int id;
                 printf("Enter ID of the product you want to update= ");
                 scanf("%d",&id);
-                update_data(id, FILE_PATH, *data, *noOfRows);
+                update_data(id, FILE_PATH, *data, *no_of_rows);
                 break;
             case 4:
-                calculate_demand(*data, noOfRows);
-                calculate_profit(*noOfRows, *data);
+                calculate_demand(*no_of_rows,*data);
+                calculate_profit(*no_of_rows,*data);
                 float total_budget;
                 printf("Enter Total Budget to be allocated for Restocking= ");
                 scanf("%f", &total_budget);
-                optimization_algorithm(*data, *noOfRows, total_budget);
+                optimization_algorithm(*data, *no_of_rows, total_budget);
                 break;
             default:
                 case_no=0;

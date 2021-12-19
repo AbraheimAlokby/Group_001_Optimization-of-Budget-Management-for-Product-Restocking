@@ -1,4 +1,4 @@
-#include "../include/updateData.h"
+#include "../include/update_data.h"
 
 int update_data(int temp_id, char *filePath, struct Product *data, int no_of_rows){
     if(!temp_id){

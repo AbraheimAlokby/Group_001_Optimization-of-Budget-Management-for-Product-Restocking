@@ -1,22 +1,19 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "../include/readFile.h"
-#include "../include/calculateDemand.h"
-#include <errno.h>
+#include "../include/read_file.h"
 
 extern int errno;
 
-int read_file(char *filePath,struct Product **data,int *noOfRows){
+int read_file(char *filePath,struct Product **data,int *no_of_rows){
     if(!filePath){
         return -3;
     }
     if(!data){
         return -4;
     }
+    // Open file with read access
     FILE *file=fopen(filePath,"r");
-    int rowCount=0;
-    int columnCount=0;
+    int row_count=0;
+    int column_count=0;
+    // Check for errors in case file read fails
     if(file==NULL){
         if(errno==ENOENT){
             printf("No such file present");
@@ -36,15 +33,21 @@ int read_file(char *filePath,struct Product **data,int *noOfRows){
         }
     }
     char c;
+    // Count the no of products in the file based on number of rows of data
     while(!feof(file)){
         char c=fgetc(file);
         if (c == '\n'){
-            rowCount++;
+            row_count++;
         }
     }
-    *data=(struct Product*)malloc((rowCount-1)*sizeof(struct Product));
+    // Allocate memory to array of structures based on count of number of rows
+    *data=(struct Product*)malloc((row_count-1)*sizeof(struct Product));
+
+    // Set the read position to beginning for reading the file
     fseek(file,0,SEEK_SET);
-    rowCount=0;
+    row_count=0;
+
+    // Skip the first line of the file as it contains headings of data
     while(!feof(file)){
         char c=fgetc(file);
         if (c == '\n'){
@@ -54,47 +57,52 @@ int read_file(char *filePath,struct Product **data,int *noOfRows){
     char *row=(char *)malloc(sizeof(char));
     fgets(row,1024,file);
     int flag=0;
+
+    // Read individual comma separated values in the .csv file
     while(!feof(file)){
-        columnCount=0;
+        column_count=0;
         char *cell;
+        // Break the string of comma separated values
         cell = strtok(row, ",");
 
         while( cell != NULL ) {
             int a=atoi(cell);
+            // Check if any value is empty
             if(cell==""){
                 flag=1;
             }
-            switch(columnCount){
+            switch(column_count){
                 case 0:
-                    (*data)[rowCount].id=a;
+                    (*data)[row_count].id=a;
                     break;
                 case 1:
-                    strcpy((*data)[rowCount].name,cell);
+                    strcpy((*data)[row_count].name,cell);
                     break;
                 case 2:
-                    (*data)[rowCount].cost_price=a;
+                    (*data)[row_count].cost_price=a;
                     break;
                 case 3:
-                    (*data)[rowCount].selling_price=a;
+                    (*data)[row_count].selling_price=a;
                     break;
                 case 4:
-                    (*data)[rowCount].current_quantity=a;
+                    (*data)[row_count].current_quantity=a;
                     break;
                 case 5:
-                    (*data)[rowCount].initial_quantity=a;
+                    (*data)[row_count].initial_quantity=a;
                     break;
             }
             cell = strtok(NULL, ",");
-            columnCount++;
+            column_count++;
         }
         fgets(row,1024,file);
-        rowCount++;
+        row_count++;
     }
     if(flag==1){
         printf("Incomplete Data In the file. Please update the data before ");
         return 1;
     }
-    *noOfRows=rowCount;
+    // The number of rows saved and to be used later in the program
+    *no_of_rows=row_count;
     return 0;
 }
 

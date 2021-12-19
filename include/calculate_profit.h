@@ -1,5 +1,5 @@
-#ifndef __CALCULATEPROFIT_H__
-#define __CALCULATEPROFIT_H__
+#ifndef __CALCULATE_PROFIT_H__
+#define __CALCULATE_PROFIT_H__
 
 #include <stdio.h>
 #include "utils.h"

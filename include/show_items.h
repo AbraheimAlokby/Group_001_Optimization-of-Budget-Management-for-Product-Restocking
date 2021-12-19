@@ -1,7 +1,9 @@
-#ifndef __SHOWITEMS_H__
-#define __SHOWITEMS_H__
+#ifndef __SHOW_ITEMS_H__
+#define __SHOW_ITEMS_H__
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "utils.h"
 
 /*

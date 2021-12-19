@@ -1,16 +1,16 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "../include/optimizationAlgorithm.h"
+#include "../include/optimization_algorithm.h"
 
+/** The optimisation algorithm function aims to optimize the selection of purchasable products for the beginning of the next fiscal period.
+ */
 void *optimization_algorithm(struct Product *data, int num_of_rows, float total_budget){
 
-    int i; /*index for product selection within array of structures */
+    int i; /*!< index for product selection within array of structures */
     int demand_rank = 5; /*index count for ranking based on demand value */
-    float temp_allocated_allocated_budget = 0; /* Temporary variable used to
+    float temp_allocated_allocated_budget = 0; /*!< Temporary variable used to
                                                 * determine how much of item
                                                 * i should be purchased.
                                                 */
-    float current_budget = total_budget;/*Identifies the current budget
+    float current_budget = total_budget;/*!< Identifies the current budget
                                          * after funds have been taken.
                                          * Initialized as total budget.
                                          */
@@ -23,7 +23,6 @@ void *optimization_algorithm(struct Product *data, int num_of_rows, float total_
      * will be removed from the total budget. The remaining budget will
      * be re-allocated to the next fiscal year.
      */
-
     while(demand_rank >= 0){    /*While loop selects the demand from
                                  * highest to lowest. Ensuring that
                                  * the most budget will be allocated
@@ -92,6 +91,7 @@ void *optimization_algorithm(struct Product *data, int num_of_rows, float total_
                                      * should be purchased based on the allocated
                                      * budget determined previously.
                                      */
+        data[i].restock_amount=0;
         temp_allocated_allocated_budget = data[i].product_budget;
         /* Determine the restock amount for item i */
         while(temp_allocated_allocated_budget >= 0){

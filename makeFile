@@ -10,29 +10,29 @@ results_folder := $(shell mkdir "data")
 #TARGETS TO GENERATE THE OBJECT FILES
 all:  index
 
-index:  index.o readFile.o calculateDemand.o optimizationAlgorithm.o showItems.o updateData.o calculateProfit.o insertNewData.o
-	$(CC) -g  build/index.o build/readFile.o build/calculateDemand.o build/optimizationAlgorithm.o build/showItems.o build/updateData.o build/calculateProfit.o build/insertNewData.o -o bin/index
+index:  index.o read_file.o calculate_demand.o optimization_algorithm.o show_items.o update_data.o calculate_profit.o insert_new_data.o
+	$(CC) -g  build/index.o build/read_file.o build/calculate_demand.o build/optimization_algorithm.o build/show_items.o build/update_data.o build/calculate_profit.o build/insert_new_data.o -o bin/index
 
-calculateProfit.o: src/calculateProfit.c
-	$(CC) -g -c  src/calculateProfit.c -o build/calculateProfit.o
+calculate_profit.o: src/calculate_profit.c
+	$(CC) -g -c  src/calculate_profit.c -o build/calculate_profit.o
 
-updateData.o: src/updateData.c
-	$(CC) -g -c  src/updateData.c -o build/updateData.o
+update_data.o: src/update_data.c
+	$(CC) -g -c  src/update_data.c -o build/update_data.o
 
-optimizationAlgorithm.o: src/optimizationAlgorithm.c
-	$(CC) -g -c  src/optimizationAlgorithm.c -o build/optimizationAlgorithm.o
+optimization_algorithm.o: src/optimization_algorithm.c
+	$(CC) -g -c  src/optimization_algorithm.c -o build/optimization_algorithm.o
 
-showItems.o: src/showItems.c
-	$(CC) -g -c  src/showItems.c -o build/showItems.o
+show_items.o: src/show_items.c
+	$(CC) -g -c  src/show_items.c -o build/show_items.o
 
-insertNewData.o: src/insertNewData.c
-	$(CC) -g -c  src/insertNewData.c -o build/insertNewData.o
+insert_new_data.o: src/insert_new_data.c
+	$(CC) -g -c  src/insert_new_data.c -o build/insert_new_data.o
 
-calculateDemand.o: src/calculateDemand.c
-	$(CC) -g -c  src/calculateDemand.c -o build/calculateDemand.o
+calculate_demand.o: src/calculate_demand.c
+	$(CC) -g -c  src/calculate_demand.c -o build/calculate_demand.o
 
-readFile.o: src/readFile.c
-	$(CC) -g -c  src/readFile.c -o build/readFile.o
+read_file.o: src/read_file.c
+	$(CC) -g -c  src/read_file.c -o build/read_file.o
 
 index.o: src/index.c
 	$(CC) -g -c  src/index.c  -o build/index.o

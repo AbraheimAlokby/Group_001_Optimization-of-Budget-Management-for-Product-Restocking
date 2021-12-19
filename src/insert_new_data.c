@@ -1,4 +1,4 @@
-#include "../include/insertNewData.h"
+#include "../include/insert_new_data.h"
 
 int insert_new_data(char *filePath, struct Product **data, int *noOfRows){
     char name[30];
@@ -17,7 +17,7 @@ int insert_new_data(char *filePath, struct Product **data, int *noOfRows){
     printf("Enter the initial quantity of the= ");
     scanf("%d",&initial_quantity);
 
-    // Create a string of comma separated values for user specifications to store them in the .csv file
+    // Creating a string of comma separated values for user specifications to store them in the .csv file
     char *str=(char *)malloc(sizeof(char)*200);
     int id=(*data)[*noOfRows-1].id+1;
 
@@ -40,19 +40,25 @@ int insert_new_data(char *filePath, struct Product **data, int *noOfRows){
     strcat(str,tempStr);
     strcat(str,"\0");
 
-    // Open the file for append access
+    // Opening the file for append access
     FILE *file= fopen(filePath,"a");
     if(file==NULL){
         return 1;
     }
+    // Insert the created string in the last row of the file
     fputs(str,file);
+    // Inserting "\n" at the end of the file
     fputc(10,file);
+    // Closing the file
     fclose(file);
+
+    // Increasing the number of rows by one after adding new data row
     *noOfRows=*noOfRows+1;
 
-    // Resize the array to store the new product
+    // Resizing the array to store the new product
     (*data)=(struct Product*)realloc(*data,(*noOfRows)*sizeof(struct Product));
 
+    // Assigning values at the end of the Array of structures
     (*data)[*noOfRows-1].id=id;
     strcpy((*data)[*noOfRows-1].name,name);
     (*data)[*noOfRows-1].cost_price=cost_price;

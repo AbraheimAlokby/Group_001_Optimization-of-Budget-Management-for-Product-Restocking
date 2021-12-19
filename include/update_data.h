@@ -1,5 +1,5 @@
-#ifndef __UPDATEDATA_H__
-#define __UPDATEDATA_H__
+#ifndef __UPDATE_DATA_H__
+#define __UPDATE_DATA_H__
 
 #include <stdio.h>
 #include <string.h>

@@ -1,4 +1,4 @@
-#include "../include/calculateProfit.h"
+#include "../include/calculate_profit.h"
 
 int calculate_profit(int no_of_rows,struct Product *data){
     for(int i=0;i<no_of_rows;i++){
