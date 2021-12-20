@@ -5,6 +5,11 @@
 
 /** The showitems function aims to show the user either, all the product data found within the given file, or show selected product data from desired product IDs.
  */
+ /**@brief
+ * Reads the required product data structure and the length of said
+ * data, so that it will be used to display the data to the user
+ * if commanded.
+ */
 void *show_items(struct Product *data, int num_of_rows){
     int i;  /*!< row indexing */
     char user_decision_str[15]; /*!< user input for what the program needs to show */
