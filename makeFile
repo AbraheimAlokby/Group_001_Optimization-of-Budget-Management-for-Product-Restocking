@@ -1,0 +1,65 @@
+CC=gcc
+
+
+#CREATE BIN AND BUILD FOLDERS TO SAVE THE COMPILED FILES DURING RUNTIME IF THEY DO NOT EXIST
+bin_folder := $(shell mkdir "bin")
+build_folder := $(shell mkdir "build")
+results_folder := $(shell mkdir "data")
+
+
+#TARGETS TO GENERATE THE OBJECT FILES
+all:  index
+
+index:  index.o read_file.o calculate_demand.o optimization_algorithm.o show_items.o update_data.o calculate_profit.o insert_new_data.o
+	$(CC) -g  build/index.o build/read_file.o build/calculate_demand.o build/optimization_algorithm.o build/show_items.o build/update_data.o build/calculate_profit.o build/insert_new_data.o -o bin/index
+
+calculate_profit.o: src/calculate_profit.c
+	$(CC) -g -c  src/calculate_profit.c -o build/calculate_profit.o
+
+update_data.o: src/update_data.c
+	$(CC) -g -c  src/update_data.c -o build/update_data.o
+
+optimization_algorithm.o: src/optimization_algorithm.c
+	$(CC) -g -c  src/optimization_algorithm.c -o build/optimization_algorithm.o
+
+show_items.o: src/show_items.c
+	$(CC) -g -c  src/show_items.c -o build/show_items.o
+
+insert_new_data.o: src/insert_new_data.c
+	$(CC) -g -c  src/insert_new_data.c -o build/insert_new_data.o
+
+calculate_demand.o: src/calculate_demand.c
+	$(CC) -g -c  src/calculate_demand.c -o build/calculate_demand.o
+
+read_file.o: src/read_file.c
+	$(CC) -g -c  src/read_file.c -o build/read_file.o
+
+index.o: src/index.c
+	$(CC) -g -c  src/index.c  -o build/index.o
+
+test:  test_index
+
+test_index:  test_index.o test_read_file.o test_calculate_demand.o test_optimization_algorithm.o test_calculate_profit.o test_insert_new_data.o
+	$(CC) -g  build/test_index.o build/test_read_file.o build/test_calculate_demand.o build/test_optimization_algorithm.o build/test_insert_new_data.o build/test_calculate_profit.o -o bin/test
+
+test_optimization_algorithm.o: test/src/test_optimization_algorithm.c
+	$(CC) -g -c  test/src/test_optimization_algorithm.c -o build/test_optimization_algorithm.o
+
+test_calculate_profit.o: test/src/test_calculate_profit.c
+	$(CC) -g -c  test/src/test_calculate_profit.c -o build/test_calculate_profit.o
+
+test_insert_new_data.o: test/src/test_insert_new_data.c
+	$(CC) -g -c  test/src/test_insert_new_data.c -o build/test_insert_new_data.o
+
+test_calculate_demand.o: test/src/test_calculate_demand.c
+	$(CC) -g -c  test/src/test_calculate_demand.c -o build/test_calculate_demand.o
+
+test_read_file.o: test/src/test_read_file.c
+	$(CC) -g -c  test/src/test_read_file.c -o build/test_read_file.o
+
+test_index.o: test/src/test_index.c
+	$(CC) -g -c  test/src/test_index.c  -o build/test_index.o
+
+#CLEAN COMMANDS
+clean:
+	rm -f bin/* build/*
