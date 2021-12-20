@@ -5,7 +5,6 @@
 #include "..\include\test_calculate_demand.h"
 #include "..\include\test_calculate_profit.h"
 #include "..\include\test_optimization_algorithm.h"
-#include "..\include\test_insert_new_data.h"
 
 #define FILE_PATH "..\\test\\data\\data.csv"
 #define TOTAL_BUDGET 4000
@@ -40,8 +39,6 @@ int main() {
         printf("\n ~~~~ Test Case Calculate Profit : Failed ~~~~ \n");
     }
 
-//    x=test_insert_new_data(FILE_PATH,data,noOfRows);
-//    printf("\nASFASAFAS %d  ",x);
     printf(" \n \n Testing Each Step of optimization:  \n");
     x=test_optimization_algorithm(*data, *noOfRows,TOTAL_BUDGET);
     if(x==0){
