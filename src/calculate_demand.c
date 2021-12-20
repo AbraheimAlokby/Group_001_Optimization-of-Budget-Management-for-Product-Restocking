@@ -2,23 +2,23 @@
 
 void calculate_demand(int noOfRows,struct Product *data){
     for(int i=0;i<noOfRows;i++){
-        float percentageOfItemsSold=(data[i].selling_price-data[i].cost_price+0.0)/data[i].selling_price;
+        float percentageOfItemsSold=(data[i].initial_quantity-data[i].current_quantity+0.0)/data[i].initial_quantity;
         percentageOfItemsSold*=100;
         int demandVariable;
         if(percentageOfItemsSold>80){
-            demandVariable=1;
+            demandVariable=5;
         }
         else if(percentageOfItemsSold>60&&percentageOfItemsSold<=80){
-            demandVariable=2;
+            demandVariable=4;
         }
         else if(percentageOfItemsSold>40&&percentageOfItemsSold<=60){
             demandVariable=3;
         }
         else if(percentageOfItemsSold>20&&percentageOfItemsSold<=40){
-            demandVariable=4;
+            demandVariable=2;
         }
         else{
-            demandVariable=5;
+            demandVariable=1;
         }
         data[i].demand=demandVariable;
     }

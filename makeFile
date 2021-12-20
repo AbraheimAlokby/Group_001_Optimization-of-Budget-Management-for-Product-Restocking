@@ -37,7 +37,28 @@ read_file.o: src/read_file.c
 index.o: src/index.c
 	$(CC) -g -c  src/index.c  -o build/index.o
 
+test:  test_index
 
+test_index:  test_index.o test_read_file.o test_calculate_demand.o test_optimization_algorithm.o test_calculate_profit.o test_insert_new_data.o
+	$(CC) -g  build/test_index.o build/test_read_file.o build/test_calculate_demand.o build/test_optimization_algorithm.o build/test_insert_new_data.o build/test_calculate_profit.o -o bin/test
+
+test_optimization_algorithm.o: test/src/test_optimization_algorithm.c
+	$(CC) -g -c  test/src/test_optimization_algorithm.c -o build/test_optimization_algorithm.o
+
+test_calculate_profit.o: test/src/test_calculate_profit.c
+	$(CC) -g -c  test/src/test_calculate_profit.c -o build/test_calculate_profit.o
+
+test_insert_new_data.o: test/src/test_insert_new_data.c
+	$(CC) -g -c  test/src/test_insert_new_data.c -o build/test_insert_new_data.o
+
+test_calculate_demand.o: test/src/test_calculate_demand.c
+	$(CC) -g -c  test/src/test_calculate_demand.c -o build/test_calculate_demand.o
+
+test_read_file.o: test/src/test_read_file.c
+	$(CC) -g -c  test/src/test_read_file.c -o build/test_read_file.o
+
+test_index.o: test/src/test_index.c
+	$(CC) -g -c  test/src/test_index.c  -o build/test_index.o
 
 #CLEAN COMMANDS
 clean:
