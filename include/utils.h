@@ -1,13 +1,17 @@
 /*
  * This header file creates the required structure needed for the data allocation of the program.
  */
+ 
+/*******************************************************************/
+/*                       PREPROCESSOR GUAARDS                      */
+/*******************************************************************/
 
 #ifndef __UTILS_H__
 #define __UTILS_H__
 
 struct Product {
     int id;                     /* Product identification number */
-    char name[30];             /* Product name */
+    char name[30];              /* Product name */
     float cost_price;           /* Product price for company to purchase the item */
     float selling_price;        /* Product price for company to sell the item */
     int current_quantity;       /* Product quantity found at the end of the fiscal period */

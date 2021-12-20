@@ -1,15 +1,12 @@
 #include "../include/optimization_algorithm.h"
-
+ 
 /** The optimisation algorithm function aims to optimize the selection of purchasable products for the beginning of the next fiscal period.
  */
 void *optimization_algorithm(struct Product *data, int num_of_rows, float total_budget){
 
     int i; /*!< index for product selection within array of structures */
     int demand_rank = 5; /*index count for ranking based on demand value */
-    float temp_allocated_allocated_budget = 0; /*!< Temporary variable used to
-                                                * determine how much of item
-                                                * i should be purchased.
-                                                */
+    float temp_allocated_allocated_budget = 0; /*!< Temporary variable used to determine how much of item i should be purchased.*/
     float current_budget = total_budget;/*!< Identifies the current budget
                                          * after funds have been taken.
                                          * Initialized as total budget.

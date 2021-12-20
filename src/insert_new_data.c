@@ -6,16 +6,31 @@ int insert_new_data(char *filePath, struct Product **data, int *noOfRows){
     int current_quantity, initial_quantity;
 
     // Ask user for product specifications
+
     printf("Enter name of the product= ");
     scanf("%s",&name);
+
     printf("Enter cost price of the the product= ");
     scanf("%f",&cost_price);
+
     printf("Enter selling price of the the product= ");
     scanf("%f",&selling_price);
+    while(selling_price<cost_price){
+        printf("Invalid Value: Selling Price must be more than cost price \n");
+        printf("Enter selling price of the the product= ");
+        scanf("%f",&selling_price);
+    }
+
     printf("Enter the current quantity of the product= ");
     scanf("%d",&current_quantity);
+
     printf("Enter the initial quantity of the= ");
     scanf("%d",&initial_quantity);
+    while(initial_quantity<current_quantity){
+        printf("Invalid Value: Initial Quantity must be more than Current Quantity \n");
+        printf("Enter the initial quantity of the= ");
+        scanf("%d",&initial_quantity);
+    }
 
     // Creating a string of comma separated values for user specifications to store them in the .csv file
     char *str=(char *)malloc(sizeof(char)*200);
