@@ -13,9 +13,18 @@
 
 
 int main() {
+
+    // Save the number of rows of data in this variable
     int *no_of_rows=(int *)malloc(sizeof(int));
+
+    // Array of structures
     struct Product **data;
+
+    // Running the readfile function
     int x=read_file(FILE_PATH,data,no_of_rows);
+    if( x!=0 && x!=1 ){
+        return 0;
+    }
 
     int case_no;
 

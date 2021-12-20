@@ -46,7 +46,7 @@ void *show_items(struct Product *data, int num_of_rows){
         user_decision_int = atoi(user_decision_str);
 
         /* Checks if user input is a string instead of a requested number (except 'done'). */
-        if(user_decision_int == 0 && strcmp(user_decision_str, "done") != 0){
+        if(0 == user_decision_int && strcmp(user_decision_str, "done") != 0){
             puts("Incorrect Value. Try again");
 
         }
@@ -58,7 +58,7 @@ void *show_items(struct Product *data, int num_of_rows){
         }
 
             /* If user input matches selection 1, function shows all the product data. */
-        else if(user_decision_int == 1){
+        else if(1 == user_decision_int){
             printf ("Showing Information for All Products: \n");
             puts("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
             char *row1[] = {"Product Name", "Product ID", "Purchase Price", "Selling Price", "Profit", "Demand", "Initial Quantity", "Current Quantity"};       /* row 1 signifies the column names of the outputted data */
@@ -76,7 +76,7 @@ void *show_items(struct Product *data, int num_of_rows){
 
 
             /* If user input matches selection 2, function shows the data for only the products selected by the user */
-        else if(user_decision_int == 2){
+        else if(2 == user_decision_int){
             do {
                 printf ("Enter a product ID (type 'done' to end): ");   /* Asks the user of what product they want to
                                                                          * see data for.

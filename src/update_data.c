@@ -18,7 +18,7 @@ int update_data(int temp_id, char *filePath, struct Product *data, int no_of_row
             printf("Press 6 to update initial quantity\n");
             scanf("%d", &n);
 
-            if(n == 1){
+            if(1 == n){
                 printf("Enter ID: ");
                 int temp;
                 scanf("%d",&temp);
@@ -31,31 +31,31 @@ int update_data(int temp_id, char *filePath, struct Product *data, int no_of_row
                 data[i].id = temp;
             }
 
-            else if(n == 2){
+            else if(2 == n){
                 printf("Enter Name: ");
                 char new_name[30];
                 scanf("%s",new_name);
                 strcpy(data[i].name,new_name);
             }
-            else if(n == 3){
+            else if(3 == n){
                 printf("Enter Cost Price: ");
                 float temp;
                 scanf("%f",&temp);
                 data[i].cost_price = temp;
             }
-            else if(n == 4){
+            else if(4 == n){
                 printf("Enter Selling Price: ");
                 float temp;
                 scanf("%f",&temp);
                 data[i].selling_price = temp;
             }
-            else if(n == 5){
+            else if(5 == n){
                 printf("Enter Current Quantity: ");
                 int temp;
                 scanf("%d",&temp);
                 data[i].current_quantity = temp;
             }
-            else if(n == 6){
+            else if(6 == n){
                 printf("Enter Initial Quantity: ");
                 int temp;
                 scanf("%d",&temp);

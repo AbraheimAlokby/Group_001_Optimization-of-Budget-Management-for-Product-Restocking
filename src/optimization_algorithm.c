@@ -37,31 +37,31 @@ void *optimization_algorithm(struct Product *data, int num_of_rows, float total_
                                                * allocation only is done for the
                                                * desired rank (5 to 0)
                                                */
-                if (data[i].demand == 5 && current_budget > data[i].cost_price && data[i].profit > 0){
+                if (5 == data[i].demand  && current_budget > data[i].cost_price && data[i].profit > 0){
                     /* Give highest percentage of the current allocated budget */
                     data[i].product_budget = 0.15 * current_budget;
                     /*Reduce the current budget by the taken budget */
                     current_budget -= data[i].product_budget;
                 }
-                else if (data[i].demand == 4 && current_budget > data[i].cost_price && data[i].profit > 0){
+                else if (4 == data[i].demand && current_budget > data[i].cost_price && data[i].profit > 0){
                     /* Give high percentage of the current allocated budget */
                     data[i].product_budget = 0.135 * current_budget;
                     /*Reduce the current budget by the taken budget */
                     current_budget -= data[i].product_budget;
                 }
-                else if (data[i].demand == 3 && current_budget > data[i].cost_price && data[i].profit > 0){
+                else if (3 == data[i].demand && current_budget > data[i].cost_price && data[i].profit > 0){
                     /* Give intermediate percentage of the current allocated budget */
                     data[i].product_budget = 0.1 * current_budget;
                     /*Reduce the current budget by the taken budget */
                     current_budget -= data[i].product_budget;
                 }
-                else if (data[i].demand == 2 && current_budget > data[i].cost_price && data[i].profit > 0){
+                else if (2 == data[i].demand && current_budget > data[i].cost_price && data[i].profit > 0){
                     /* Give low percentage of the current allocated budget */
                     data[i].product_budget = 0.075 * current_budget;
                     /*Reduce the current budget by the taken budget */
                     current_budget -= data[i].product_budget;
                 }
-                else if (data[i].demand == 1 && current_budget > data[i].cost_price && data[i].profit > 0){
+                else if (1 == data[i].demand && current_budget > data[i].cost_price && data[i].profit > 0){
                     /* Give lowest percentage of the current allocated budget */
                     data[i].product_budget = 0.065 * current_budget;
                     /*Reduce the current budget by the taken budget */

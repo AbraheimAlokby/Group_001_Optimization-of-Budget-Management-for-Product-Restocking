@@ -68,7 +68,7 @@ int read_file(char *filePath,struct Product **data,int *no_of_rows){
         while( cell != NULL ) {
             int a=atoi(cell);
             // Check if any value is empty
-            if(cell==""){
+            if(""==cell){
                 flag=1;
             }
             switch(column_count){
@@ -97,7 +97,7 @@ int read_file(char *filePath,struct Product **data,int *no_of_rows){
         fgets(row,1024,file);
         row_count++;
     }
-    if(flag==1){
+    if(1==flag){
         printf("Incomplete Data In the file. Please update the data before ");
         return 1;
     }
