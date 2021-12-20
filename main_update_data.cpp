@@ -1,8 +1,11 @@
+/*******************************************************************/
+/*                            DEPENDENCIES                         */
+/*******************************************************************/
 #include<stdio.h>
 #include <time.h>
 #include<string.h>
 #include <stdlib.h>
-#include"updateData.h"
+//#include"updateData.h"
 
 struct Product{
     int id;
@@ -22,10 +25,21 @@ int calculate_profit(){
 		data[i].profit = data[i].selling_price - data[i].cost_price;
 	}
 }
+/*******************************************************************/
+/*                       FUNCTIONS PROTOTYPES                      */
+/*******************************************************************/
 
+/**brief
+* This will do something
+*
+*@retval True runs successfully
+*@param [out] temp_id
+*					ID that you want to change
+*
+*/
 int updateData(int temp_id){
 	if(temp_id)
-		continue;	
+		{}	
 	else{
 		printf("Enter Valid number");
 		return 4;	
